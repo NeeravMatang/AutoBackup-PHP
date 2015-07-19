@@ -10,7 +10,7 @@ Copyright 2015 Neerav Matang (http://neeravmatang.in)
 Github:   https://github.com/NeeravMatang/
 Facebook: https://www.facebook.com/MatangNeeravOfficial
 Twitter:  http://twitter.com/MatangNeerav
-
+eMail:    neeravmatang@gmail.com
 */
 
 
