@@ -8,9 +8,8 @@ _  /|  / /  __/  __/  /   / /_/ /__ |/ /     _  /  / / / /_/ // /_ / /_/ /_  / /
 /_/ |_/  \___/\___//_/    \__,_/ _____/      /_/  /_/  \__,_/ \__/ \__,_/ /_/ /_/_\__, /  
                                                                                  /____/   
 Copyright 2015 Neerav Matang (http://neeravmatang.in)
-Github:   https://github.com/NeeravMatang/AutoBackup-PHP
-Facebook: https://www.facebook.com/MatangNeeravOfficial
-Twitter:  http://twitter.com/MatangNeerav
+Facebook: <a href="https://www.facebook.com/MatangNeeravOfficial" target="_blank">https://www.facebook.com/MatangNeeravOfficial</a>
+Twitter:  <a href="http://twitter.com/MatangNeerav" target="_blank">http://twitter.com/MatangNeerav</a>
 
 
 Steps:
