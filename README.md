@@ -10,7 +10,7 @@ _  /|  / /  __/  __/  /   / /_/ /__ |/ /     _  /  / / / /_/ // /_ / /_/ /_  / /
 Copyright 2015 Neerav Matang (<a href="http://neeravmatang.in" target="_blank">http://neeravmatang.in</a>)
 Facebook: <a href="https://www.facebook.com/MatangNeeravOfficial" target="_blank">https://www.facebook.com/MatangNeeravOfficial</a>
 Twitter:  <a href="http://twitter.com/MatangNeerav" target="_blank">http://twitter.com/MatangNeerav</a>
-
+eMail:    <a href="mailto:neeravmatang@gmail.com">neeravmatang@gmail.com</a>
 
 Steps:
 Step 1
