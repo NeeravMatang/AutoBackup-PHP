@@ -1,6 +1,6 @@
 # AutoBackup-PHP
 Create auto backup of your whole website's files and mails you to your email address.
-
+<pre>
 _____   __                                   ______  ___      _____                       
 ___  | / /______________________ ___   __    ___   |/  /_____ __  /______ ______________ _
 __   |/ /_  _ \  _ \_  ___/  __ `/_ | / /    __  /|_/ /_  __ `/  __/  __ `/_  __ \_  __ `/
@@ -22,3 +22,4 @@ Step 2
 
 All done.
 Enjoy backing up..
+</pre>
