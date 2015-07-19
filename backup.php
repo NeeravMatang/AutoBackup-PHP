@@ -31,45 +31,76 @@ $fileLocation = "/"; // The location of file to be backed-up. (With trailing sla
                                                                                                                                                                   
 **********************************************************************************************************************************************************************/
 
-//SystemConfig:
+// SystemConfig:
+
 $fileToZip = scandir($fileLocation);
 $date = date('dmY');
-$backupFileName = 'backup'.$date.'.zip';
-//end SystemConfig;
-//Function createZip: 
-function createZip($files = array(),$destination = '',$overwrite = true) {
-	//if the zip file already exists and overwrite is false, return false
-	if(file_exists($destination) && !$overwrite) { return false; }
-	//vars
+$backupFileName = 'backup' . $date . '.zip';
+
+// end SystemConfig;
+// Function createZip:
+
+function createZip($files = array() , $destination = '', $overwrite = true)
+{
+
+	// if the zip file already exists and overwrite is false, return false
+
+	if (file_exists($destination) && !$overwrite)
+	{
+		return false;
+	}
+
+	// vars
+
 	$valid_files = array();
-	//if files were passed in...
-	if(is_array($files)) {
-		//cycle through each file
-		foreach($files as $file) {
-			//make sure the file exists
-			if(file_exists($file)) {
+
+	// if files were passed in...
+
+	if (is_array($files))
+	{
+
+		// cycle through each file
+
+		foreach($files as $file)
+		{
+
+			// make sure the file exists
+
+			if (file_exists($file))
+			{
 				$valid_files[] = $file;
 			}
 		}
 	}
-	//if we have good files...
-	if(count($valid_files)) {
-		//create the archive
+
+	// if we have good files...
+
+	if (count($valid_files))
+	{
+
+		// create the archive
+
 		$zip = new ZipArchive();
-		if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
+		if ($zip->open($destination, $overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true)
+		{
 			return false;
 		}
-		//add the files
-		foreach($valid_files as $file) {
-			$zip->addFile($file,$file);
+
+		// add the files
+
+		foreach($valid_files as $file)
+		{
+			$zip->addFile($file, $file);
 		}
-		//debug
-		//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
-		
-		//close the zip -- done!
+
+		// debug
+		// echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
+		// close the zip -- done!
+
 		$zip->close();
-		
-		//check to make sure the file exists
+
+		// check to make sure the file exists
+
 		return file_exists($destination);
 	}
 	else
@@ -77,42 +108,36 @@ function createZip($files = array(),$destination = '',$overwrite = true) {
 		return false;
 	}
 }
+
 // end createZip;
+// startZipping:
 
-//startZipping:
-$resultOfZipCreation = createZip($fileToZip,$backupFileName);
+$resultOfZipCreation = createZip($fileToZip, $backupFileName);
+
 // end startZipping;
-
 // sendMail:
-if($resultOfZipCreation){
-	
+
+if ($resultOfZipCreation)
+{
 	$fileatt = $backupFileName; // Path to the file.
 	$fileatt_type = "application/zip"; // File Type
 	$fileatt_name = $backupFileName; // Filename that will be used for the file as the attachment
-	$file = fopen($fileatt,'rb');
-	$data = fread($file,filesize($fileatt));
+	$file = fopen($fileatt, 'rb');
+	$data = fread($file, filesize($fileatt));
 	fclose($file);
 	$semi_rand = md5(time());
 	$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
-	$headers="From: $mailFrom"; // Who the email is from (example)
-	$headers .= "\nMIME-Version: 1.0\n" .
-	"Content-Type: multipart/mixed;\n" .
-	" boundary=\"{$mime_boundary}\"";
-	$email_message .= "This is a multi-part message in MIME format.\n\n" .
-	"--{$mime_boundary}\n" .
-	"Content-Type:text/html; charset=\"iso-8859-1\"\n" .
-	"Content-Transfer-Encoding: 7bit\n\n" . $mailBodyText;
-	$email_message .= "\n\n";
+	$headers = "From: $mailFrom"; // Who the email is from (example)
+	$headers.= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
+	$email_message.= "This is a multi-part message in MIME format.\n\n" . "--{$mime_boundary}\n" . "Content-Type:text/html; charset=\"iso-8859-1\"\n" . "Content-Transfer-Encoding: 7bit\n\n" . $mailBodyText;
+	$email_message.= "\n\n";
 	$data = chunk_split(base64_encode($data));
-	$email_message .= "--{$mime_boundary}\n" .
-	"Content-Type: {$fileatt_type};\n" .
-	" name=\"{$fileatt_name}\"\n" .
-	"Content-Transfer-Encoding: base64\n\n" .
-	$data . "\n\n" .
-	"--{$mime_boundary}--\n";
-
-	mail($email_to,$mailSubject,$email_message,$headers);
-} else {
+	$email_message.= "--{$mime_boundary}\n" . "Content-Type: {$fileatt_type};\n" . " name=\"{$fileatt_name}\"\n" . "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n" . "--{$mime_boundary}--\n";
+	mail($email_to, $mailSubject, $email_message, $headers);
+}
+else
+{
 	die($resultOfZipCreation);
 }
-//end sendMail;
+
+// end sendMail;
