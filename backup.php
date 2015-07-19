@@ -7,7 +7,7 @@ _  /|  / /  __/  __/  /   / /_/ /__ |/ /     _  /  / / / /_/ // /_ / /_/ /_  / /
 /_/ |_/  \___/\___//_/    \__,_/ _____/      /_/  /_/  \__,_/ \__/ \__,_/ /_/ /_/_\__, /  
                                                                                  /____/   
 Copyright 2015 Neerav Matang (http://neeravmatang.in)
-Github:   https://github.com/NeeravMatang/AutoBackup-PHP
+Github:   https://github.com/NeeravMatang/
 Facebook: https://www.facebook.com/MatangNeeravOfficial
 Twitter:  http://twitter.com/MatangNeerav
 
