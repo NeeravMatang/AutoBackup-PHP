@@ -1,6 +1,6 @@
 # AutoBackup-PHP
 Create auto backup of your whole website's files and mails you to your email address.
-<h1>SCRIPT IS UNDER DEVELOPMENT.</h1>
+<h1 style="color:red;">SCRIPT IS UNDER DEVELOPMENT.</h1>
 <pre>
 _____   __                                   ______  ___      _____                       
 ___  | / /______________________ ___   __    ___   |/  /_____ __  /______ ______________ _
