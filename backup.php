@@ -133,7 +133,7 @@ if ($resultOfZipCreation)
 	$email_message.= "\n\n";
 	$data = chunk_split(base64_encode($data));
 	$email_message.= "--{$mime_boundary}\n" . "Content-Type: {$fileatt_type};\n" . " name=\"{$fileatt_name}\"\n" . "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n" . "--{$mime_boundary}--\n";
-	mail($email_to, $mailSubject, $email_message, $headers);
+	mail($sendMailTo, $mailSubject, $email_message, $headers);
 }
 else
 {
